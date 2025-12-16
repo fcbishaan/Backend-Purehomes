@@ -1,0 +1,12 @@
+[
+  { "name": "2 Seater Sofa", "slug": "2-seater-sofa", "category": "Sofas" },
+  { "name": "3 Seater Sofa", "slug": "3-seater-sofa", "category": "Sofas" },
+  { "name": "L Shape Sofa", "slug": "l-shape-sofa", "category": "Sofas" },
+  { "name": "Sofa Cum Bed", "slug": "sofa-cum-bed", "category": "Sofas" },
+
+  { "name": "Accent Chair", "slug": "accent-chair", "category": "Chair" },
+  { "name": "Lounge Chair", "slug": "lounge-chair", "category": "Chair" },
+
+  { "name": "Coffee Table", "slug": "coffee-table", "category": "Tables" },
+  { "name": "Console Table", "slug": "console-table", "category": "Tables" }
+]

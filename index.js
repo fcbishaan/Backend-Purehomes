@@ -12,6 +12,8 @@ const subCategoryRoutes = require("./routes/subCategoryRoute.js");
 const fabricRoutes = require("./routes/fabricRoutes.js");
 const colorRoutes = require("./routes/colorRoutes.js");
 const cloudinaryRoutes = require("./routes/cloudinary.js");
+const cartRoutes = require("./routes/cartRoutes.js");
+const adminRoutes = require("./routes/adminRoutes.js");
 //connecting database
 connectDb();
 // defing app
@@ -35,7 +37,10 @@ app.use("/subCategory", subCategoryRoutes);
 app.use("/fabric", fabricRoutes);
 app.use("/color", colorRoutes);
 app.use("/cloudinary", cloudinaryRoutes);
+app.use("/cart", cartRoutes);
+app.use("/admin", adminRoutes);
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+

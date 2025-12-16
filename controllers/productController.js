@@ -371,5 +371,9 @@ const updateProduct = async (req, res) => {
     }
 };
 
+const productStar = async (req, res) => {
+
+
+}
 module.exports = { createProduct, getAllProduct, getProductBySlug, deleteProduct, updateProduct };
-module.exports = { createProduct, getAllProduct, getProductBySlug, deleteProduct, updateProduct };
+

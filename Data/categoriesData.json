@@ -1,0 +1,10 @@
+[
+  { "name": "Sofas", "slug": "sofas" },
+  { "name": "Chair", "slug": "chair" },
+  { "name": "Tables", "slug": "tables" },
+  { "name": "Cabinets", "slug": "cabinets" },
+  { "name": "TvUnits", "slug": "tvunits" },
+  { "name": "Ottomans", "slug": "ottomans" },
+  { "name": "Bookshelves", "slug": "bookshelves" },
+  { "name": "BarUnit", "slug": "barunit" }
+]

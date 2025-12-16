@@ -20,4 +20,5 @@ router.get("/:slug", getProductBySlug);
 // Delete product by slug
 router.delete("/:slug", deleteProduct);
 
+//router.put("/product/star/:productId",productStar);
 module.exports = router;

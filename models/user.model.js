@@ -8,16 +8,18 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
+      unique: true,
     },
     number: {
-      type : String,
-      unique:true,
-      sparse:true,
+      type: String,
+      unique: true,
+      sparse: true,
     },
     password: {
       type: String,
     },
-    verficationCode : String ,
+    emailVerificationToken: String,
+    verficationCode: String,
     isVerified: {
       type: Boolean,
       default: false,

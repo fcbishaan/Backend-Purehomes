@@ -36,7 +36,15 @@ const productSchema = new mongoose.Schema({
     public_id: String
   }],
   description: String,
-  rating: Number,
+
+  ratings: [
+    {
+      star: Number,
+      postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    },
+  ],
+
+
   reviews: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Review'
