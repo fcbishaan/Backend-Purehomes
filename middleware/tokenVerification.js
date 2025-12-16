@@ -10,6 +10,7 @@ const setAuthToken = async (user, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: true,
+      sameSite: "none",
       maxAge: 3600000 * 24 * 7, // Corrected: 3600000 ms = 1 hour
     });
 
