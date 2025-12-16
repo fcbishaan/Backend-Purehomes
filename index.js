@@ -18,7 +18,7 @@ const adminRoutes = require("./routes/adminRoutes.js");
 connectDb();
 // defing app
 const app = express();
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://myprop-flax.vercel.app';
 const corsOptions = {
   origin: FRONTEND_URL,
   credentials: true,
