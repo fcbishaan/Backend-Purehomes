@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { connectDb } = require("./config/db.config.js");
 
@@ -24,33 +24,34 @@ const app = express();
 // Allowed frontend origins
 const allowedOrigins = [
   "https://myprop-flax.vercel.app",
+  "https://myprop-lfk3kn6on-fcbishaans-projects.vercel.app",
   "http://localhost:3000"
 ];
 
-// // ✅ CORS CONFIG
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     // allow Postman, curl, server-to-server
-//     if (!origin) return callback(null, true);
+// ✅ CORS CONFIG
+const corsOptions = {
+  origin: function (origin, callback) {
+    // allow Postman, curl, server-to-server
+    if (!origin) return callback(null, true);
 
-//     if (allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("CORS not allowed"));
-//     }
-//   },
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"]
-// };
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
 
 // Middlewares
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
-// app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 // // 🔥 IMPORTANT: handle preflight
-// app.options("*", cors(corsOptions));
+//app.options("*", cors(corsOptions));
 
 // Routes
 app.use("/auth", authRoutes);
