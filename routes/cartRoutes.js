@@ -8,9 +8,9 @@ const {
     updateCartItemQuantity,
 } = require("../controllers/cartController");
 
-router.get("/", isLoggedIn, getCart);
-router.post("/add", isLoggedIn, addToCart);
-router.delete("/remove/:productId", isLoggedIn, removeFromCart);
-router.put("/update", isLoggedIn, updateCartItemQuantity);
+router.get("/", getCart);
+router.post("/add", addToCart);
+router.delete("/remove/:productId", removeFromCart);
+router.put("/update", updateCartItemQuantity);
 
 module.exports = router;
