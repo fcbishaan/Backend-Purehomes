@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { connectDb } = require("./config/db.config.js");
 
@@ -21,14 +20,9 @@ connectDb();
 // Init app
 const app = express();
 
-// CORS is handled entirely by nginx - no CORS config needed here
-
 // Middlewares
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
-
-// Preflight is handled by nginx - no need for this in Node.js
-// app.options("*", cors(corsOptions));
 
 // Routes
 app.use("/auth", authRoutes);
