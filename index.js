@@ -24,18 +24,17 @@ const app = express();
 // Allowed frontend origins
 const allowedOrigins = [
   "https://myprop-flax.vercel.app",
-  "https://myprop-lfk3kn6on-fcbishaans-projects.vercel.app",
-  "http://localhost:3000"
+  
 ];
 
 // ✅ CORS CONFIG
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
+    if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      callback(new Error("CORS not allowed"));
+      callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true,
