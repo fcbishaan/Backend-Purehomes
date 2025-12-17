@@ -21,35 +21,14 @@ connectDb();
 // Init app
 const app = express();
 
-// Allowed frontend origins
-const allowedOrigins = [
-  "https://myprop-flax.vercel.app",
-  
-];
-
-// ✅ CORS CONFIG
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-};
-
-app.use(cors(corsOptions)); 
+// CORS is handled entirely by nginx - no CORS config needed here
 
 // Middlewares
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 
-// // 🔥 IMPORTANT: handle preflight
-//app.options("*", cors(corsOptions));
+// Preflight is handled by nginx - no need for this in Node.js
+// app.options("*", cors(corsOptions));
 
 // Routes
 app.use("/auth", authRoutes);
