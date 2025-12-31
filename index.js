@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const { connectDb } = require("./config/db.config.js");
-
+const cors = require("cors");
 // Routes
 const authRoutes = require("./routes/auth.js");
 const productRoutes = require("./routes/productRoutes.js");
@@ -23,7 +23,7 @@ const app = express();
 // Middlewares
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
-
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 // Routes
 app.use("/auth", authRoutes);
 app.use("/product", productRoutes);

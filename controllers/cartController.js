@@ -4,7 +4,10 @@ const Product = require("../models/product.model");
 exports.getCart = async (req, res) => {
   try {
     let cart = await Cart.findOne(req.cartQuery)
-      .populate("items.product");
+      .populate({
+        path: "items.product",
+        populate: { path: "category" }
+      });
 
     if (!cart) {
       cart = await Cart.create({ ...req.cartQuery, items: [] });
@@ -38,7 +41,10 @@ exports.addToCart = async (req, res) => {
     }
 
     await cart.save();
-    await cart.populate("items.product");
+    await cart.populate({
+      path: "items.product",
+      populate: { path: "category" }
+    });
 
     res.json(cart);
   } catch (err) {
@@ -58,7 +64,10 @@ exports.removeFromCart = async (req, res) => {
   );
 
   await cart.save();
-  await cart.populate("items.product");
+  await cart.populate({
+    path: "items.product",
+    populate: { path: "category" }
+  });
 
   res.json(cart);
 };
@@ -83,7 +92,10 @@ exports.updateQuantity = async (req, res) => {
 
   item.quantity = quantity;
   await cart.save();
-  await cart.populate("items.product");
+  await cart.populate({
+    path: "items.product",
+    populate: { path: "category" }
+  });
 
   res.json(cart);
 };
